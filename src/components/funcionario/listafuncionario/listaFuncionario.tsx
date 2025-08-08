@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react';
 import { DNA } from 'react-loader-spinner';
 import CardFuncionarios from '../cardfuncionario/CardFuncionario';
@@ -17,6 +16,7 @@ function ListaFuncionarios() {
 
     // O useEffect agora popula o componente com dados FALSOS (mock) para visualização
     useEffect(() => {
+
         // Lista de funcionários de exemplo
         const mockData: Funcionario[] = [
             { id: 1, nome: 'Ana Carolina' },

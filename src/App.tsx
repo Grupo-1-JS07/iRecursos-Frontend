@@ -25,6 +25,13 @@ const App: React.FC = () => {
             <Route path="/performance" element={<Performance />} />
             <Route path="/tempolivre" element={<TempoLivre />} />
             <Route path="/configuracoes" element={<Configuracoes />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/funcionarioslista" element={<ListaFuncionarios />} />
+            <Route path="/cadastrarfuncionario" element={<FormFuncionario />} />
+            <Route path="/editar/:id" element={<FormFuncionario />} />
+            <Route path="/deletarfuncionario/:id" element={<DeletarFuncionario />} />
           </Routes>
           <Footer />
         </div>
@@ -32,5 +39,3 @@ const App: React.FC = () => {
     </Router>
   );
 };
-
-export default App;

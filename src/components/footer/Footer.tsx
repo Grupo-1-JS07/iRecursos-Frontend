@@ -1,29 +1,22 @@
-/* eslint-disable prefer-const */
-import { FacebookLogo, InstagramLogo, LinkedinLogo } from '@phosphor-icons/react'
+import { GithubLogoIcon } from '@phosphor-icons/react'
 
 function Footer() {
 
-    let data = new Date().getFullYear()
+    const data = new Date().getFullYear()
 
     return (
         <>
-            <div className="flex justify-center bg-indigo-900 text-white">
+            <div className="flex justify-center bg-gray-100 text-black">
                 <div className="container flex flex-col items-center py-4">
                     <p className='text-xl font-bold'>
-                            Blog Pessoal Generation | Copyright: {data}
+                            iRecursos | &copy; {data}
                         </p>
-                    <p className='text-lg'>Acesse nossas redes sociais</p>
+                    <p className='text-lg'>Acesse nossas redes:</p>
                     <div className='flex gap-2'>
-	<a href="https://www.linkedin.com/in/seu_usuario" target="_blank">
-    	<LinkedinLogo size={48} weight='bold' />
-    </a>
-    <a href="https://www.instagram.com/seu_usuario" target="_blank">
-    	<InstagramLogo size={48} weight='bold' />
-    </a>
-    <a href="https://www.facebook.com/seu_usuario" target="_blank">
-    	<FacebookLogo size={48} weight='bold' />
-	</a>
-</div>
+                        <a href="https://github.com/Grupo-1-JS07/" target="_blank">
+                            <GithubLogoIcon size={48} weight='bold' />
+                        </a>
+                    </div>
                 </div>
             </div>
         </>
