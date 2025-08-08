@@ -46,29 +46,23 @@ function FormFuncionario() {
 
         if (id !== undefined) {
             try {
-                await atualizar(`/categorias`, funcionario, setFuncionario)
+                await atualizar(`/funcionarios`, funcionario, setFuncionario)
                 alert('O Funcionário foi atualizado com sucesso!')
             } catch (error: any) {
-                if (error.toString().includes('401')) {
-
-                } else {
-                    alert('Erro ao atualizar o funcionário.')
+                alert('Erro ao atualizar o funcionário.')
                 }
 
             }
-        } else {
+         else {
             try {
                 await cadastrar(`/funcionarios`, funcionario, setFuncionario)
                 alert('O funcionário foi cadastrado com sucesso!')
             } catch (error: any) {
-                if (error.toString().includes('401')) {
-
-                } else {
-                    alert('Erro ao cadastrar funcionário.')
+                alert('Erro ao cadastrar funcionário.')
                 }
 
             }
-        }
+        
 
         setIsLoading(false)
         retornar()
@@ -77,7 +71,7 @@ function FormFuncionario() {
     return (
         <div className="container flex flex-col items-center justify-center mx-auto">
             <h1 className="text-4xl text-center my-8">
-                {id === undefined ? 'Cadastrar Categoria' : 'Editar Categoria'}
+                {id === undefined ? 'Cadastrar Funcionário' : 'Editar Funcionário'}
             </h1>
 
             <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoFuncionario}>

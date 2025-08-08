@@ -60,7 +60,7 @@ function FormDepartamento() {
         } else {
             try {
                 await cadastrar(`/departamentos`, departamento, setDepartamento)
-                alert('O departamento foi cadastrada com sucesso!')
+                alert('O departamento foi cadastrado com sucesso!')
             } catch (error: any) {
                 if (error.toString().includes('401')) {
 

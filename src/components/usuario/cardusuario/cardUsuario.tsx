@@ -1,8 +1,8 @@
-import type { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import type Usuario from "../../../models/Usuario"
 
 interface CardUsuariosProps{
-    categoria: Usuario
+    usuario: Usuario
 }
 
 function CardUsuario({ usuario }: CardUsuariosProps) {
@@ -14,7 +14,7 @@ function CardUsuario({ usuario }: CardUsuariosProps) {
             <p className='p-8 text-3xl bg-slate-200 h-full'>{usuario.nome}</p>
             
             <div className="flex">
-                <Link to={`/editarcategoria/${usuario.id}`}
+                <Link to={`/editarusuario/${usuario.id}`}
 	                className='w-full text-slate-100 bg-	indigo-400 hover:bg-indigo-800 
                     flex items-center justify-center py-2'>
 	                <button>Editar</button>

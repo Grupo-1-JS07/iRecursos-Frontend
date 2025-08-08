@@ -14,7 +14,7 @@ function CardDepartamentos({ departamento }: CardDepartamentosProps) {
             <p className='p-8 text-3xl bg-slate-200 h-full'>{departamento.nome_departamento}</p>
             
             <div className="flex">
-                <Link to={`/editarcategoria/${departamento.id}`}
+                <Link to={`/editardepartamento/${departamento.id}`}
 	                className='w-full text-slate-100 bg-	indigo-400 hover:bg-indigo-800 
                     flex items-center justify-center py-2'>
 	                <button>Editar</button>
