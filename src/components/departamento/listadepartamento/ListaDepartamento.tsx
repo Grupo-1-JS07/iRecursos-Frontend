@@ -1,32 +1,32 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-empty */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-empty */
+
 import { useState, useEffect } from "react"
 import { DNA } from "react-loader-spinner"
-import type Funcionario from "../../../models/Funcionario"
+import type Departamento from "../../../models/Departamento"
 import { buscar } from "../../../services/Service"
-import CardFuncionarios from "../cardfuncionario/CardFuncionario"
+import CardDepartamentos from "../carddepartamento/cardDepartamento"
 
+function ListaDepartamentos() {
 
-function ListaFuncionarios() {
+    const [departamentos, setDepartamentos] = useState<Departamento[]>([])
 
-    const [funcionarios, setFuncionarios] = useState<Funcionario[]>([])
-
-    async function buscarFuncionarios() {
+    async function buscarDepartamentos() {
         try {
-            await buscar('/funcionarios', setFuncionarios)
+            await buscar('/departamentos', setDepartamentos)
         } catch (error: any) {
 
         }
     }
 
     useEffect(() => {
-        buscarFuncionarios()    
-    }, [funcionarios.length])
+        buscarDepartamentos()    
+    }, [departamentos.length])
     
     return (
         <>
-        {funcionarios.length === 0 && (
+        {departamentos.length === 0 && (
             <DNA
             visible={true}
             height="200"
@@ -39,8 +39,8 @@ function ListaFuncionarios() {
             <div className="flex justify-center w-full my-4">
                 <div className="container flex flex-col">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                       {funcionarios.map((funcionario) => (
-                            <CardFuncionarios key={funcionario.id} funcionario={funcionario} />
+                       {departamentos.map((departamento) => (
+                            <CardDepartamentos key={departamento.id} departamento={departamento} />
                         ))}
                     </div>
                 </div>
@@ -49,4 +49,4 @@ function ListaFuncionarios() {
     )
 }
 
-export default ListaFuncionarios;
+export default ListaDepartamentos;

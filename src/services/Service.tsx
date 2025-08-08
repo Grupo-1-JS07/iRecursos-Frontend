@@ -17,6 +17,6 @@ export const atualizar = async (url: string, dados: Object, setDados: Function) 
     const resposta = await api.put(url, dados)
     setDados(resposta.data)
 }
-export const deletar = async (url: string, header: Object) => {
-    await api.delete(url, header)
+export const deletar = async (url: string) => {
+    await api.delete(url)
 }
