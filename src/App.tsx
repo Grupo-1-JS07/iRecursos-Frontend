@@ -6,6 +6,8 @@ import Home from './pages/home/Home'
 import ListaFuncionarios from './components/funcionario/listafuncionario/listaFuncionario'
 import FormFuncionario from './components/funcionario/formfuncionario/FormFuncionario'
 import DeletarFuncionario from './components/funcionario/deletarfuncionario/DeletarFuncionario'
+import Login from './pages/login/Login'
+import Cadastro from './pages/cadastro/Cadastro'
 
 function App() {
   return (
@@ -13,15 +15,15 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <div className="min-h-[80vh]">
-         <Routes>
+          <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/cadastro" element={<FormFuncionario />} />
-            {/* <Route path="/login" element={<Login />} /> */}
+            <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/funcionarios" element={<ListaFuncionarios />} />
-            <Route path="/cadastro" element={<FormFuncionario />} />
+            <Route path="/cadastrarfuncionario" element={<FormFuncionario />} />
             <Route path="/editar/:id" element={<FormFuncionario />} />
             <Route path="/deletarfuncionario/:id" element={<DeletarFuncionario />} />
-         </Routes>
+          </Routes>
           </div>
           <Footer />
         </BrowserRouter>
