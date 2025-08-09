@@ -1,79 +1,86 @@
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { LoaderPinwheel } from 'lucide-react'; 
 
-function Login() {
-  const [usuarioLogin, setUsuarioLogin] = useState({
-    email: "",
-    senha: ""
-  });
+const Login: React.FC = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-    setUsuarioLogin({
-      ...usuarioLogin,
-      [e.target.name]: e.target.value
-    });
-  }
-
-  function login(e: FormEvent<HTMLFormElement>) {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Email:", usuarioLogin.email);
-    console.log("Senha:", usuarioLogin.senha);
-    alert("Login realizado! (simulação)");
-  }
+    setLoading(true);
+
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    if (email && password) {
+      navigate('/dashboard'); 
+    } else {
+      alert('Por favor, preencha todos os campos.');
+    }
+    setLoading(false);
+  };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
-      <form
-        className="flex justify-center items-center flex-col w-1/2 gap-4"
-        onSubmit={login}
-      >
-        <h2 className="text-slate-900 text-5xl">Entrar</h2>
-
-        <div className="flex flex-col w-full">
-          <label htmlFor="email">E-mail</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Digite seu e-mail"
-            className="border-2 border-slate-700 rounded p-2"
-            value={usuarioLogin.email}
-            onChange={atualizarEstado}
-          />
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-xl shadow-lg">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold text-gray-900">Bem-vindo(a) ao iRecursos!</h1>
+          <p className="mt-2 text-sm text-gray-600">Sua plataforma completa para a gestão de pessoas.</p>
         </div>
-
-        <div className="flex flex-col w-full">
-          <label htmlFor="senha">Senha</label>
-          <input
-            type="password"
-            id="senha"
-            name="senha"
-            placeholder="Senha"
-            className="border-2 border-slate-700 rounded p-2"
-            value={usuarioLogin.senha}
-            onChange={atualizarEstado}
-          />
+        <form onSubmit={handleLogin} className="space-y-6">
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              placeholder="seu-email@exemplo.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              Senha
+            </label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              required
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              placeholder="*******"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div>
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-blue-400"
+            >
+              {loading ? <LoaderPinwheel className="animate-spin" /> : 'Entrar'}
+            </button>
+          </div>
+        </form>
+        <div className="text-center text-sm">
+          <p className="mt-4">
+            Não tem uma conta?{" "}
+            <Link to="/cadastro" className="font-medium text-blue-600 hover:text-blue-500">
+              Cadastre-se agora
+            </Link>
+          </p>
         </div>
-
-        <button
-          type="submit"
-          className="rounded bg-indigo-400 flex justify-center hover:bg-indigo-900 text-white w-1/2 py-2"
-        >
-          Entrar
-        </button>
-
-        <hr className="border-slate-800 w-full" />
-
-        <p>
-          Ainda não tem uma conta?{" "}
-          <a href="/cadastro" className="text-indigo-800 hover:underline">
-            Cadastre-se
-          </a>
-        </p>
-      </form>
-
-      <div className="fundoLogin hidden lg:block"></div>
+      </div>
     </div>
   );
-}
+};
 
 export default Login;
