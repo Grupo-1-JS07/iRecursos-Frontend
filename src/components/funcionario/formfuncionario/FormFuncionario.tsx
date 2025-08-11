@@ -85,10 +85,10 @@ function FormFuncionario() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="salarioBase">Salário base do funcionário</label>
+          <label htmlFor="salarioBase">Salário Hora do Funcionário</label>
           <input
             type="text"
-            placeholder="Coloque o salário base do funcionário"
+            placeholder="Informe o Salário Hora do funcionário"
             name="salarioBase"
             className="border-2 border-slate-700 rounded p-2"
             value={funcionario.salarioBase}
@@ -101,14 +101,14 @@ function FormFuncionario() {
           </label>
           <input
             type="text"
-            placeholder="Coloque as horas trabalhadas do funcionário"
+            placeholder="Informe as horas trabalhadas do funcionário"
             name="horasTrabalhadas"
             className="border-2 border-slate-700 rounded p-2"
             value={funcionario.horasTrabalhadas}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
         </div>
-        <div className="flex flex-col gap-2">
+        {/* <div className="flex flex-col gap-2">
           <label htmlFor="salarioFinal">Salário final do funcionário</label>
           <input
             type="text"
@@ -118,7 +118,7 @@ function FormFuncionario() {
             value={funcionario.salarioFinal}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
-        </div>
+        </div> */}
         <button
           className="rounded text-slate-100 bg-indigo-400 
                                hover:bg-indigo-800 w-1/2 py-2 mx-auto flex justify-center"

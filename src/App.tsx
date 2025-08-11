@@ -1,16 +1,17 @@
 import React from "react";
-import Funcionarios from "./pages/Funcionarios";
-import Recrutamento from "./pages/Recrutamento";
-import Performance from "./pages/Performance";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DeletarFuncionario from "./components/funcionario/deletarfuncionario/DeletarFuncionario";
+import FormFuncionario from "./components/funcionario/formfuncionario/FormFuncionario";
+import ListaFuncionarios from "./components/funcionario/listafuncionario/listaFuncionario";
+import MainLayout from "./mainlayout/MainLayout";
 import Configuracoes from "./pages/Configuracoes";
 import Dashboard from "./pages/Dashboard";
+import Funcionarios from "./pages/Funcionarios";
+import Performance from "./pages/Performance";
+import Recrutamento from "./pages/Recrutamento";
 import Cadastro from "./pages/cadastro/Cadastro";
 import Login from "./pages/login/Login";
-import ListaFuncionarios from "./components/funcionario/listafuncionario/listaFuncionario";
-import FormFuncionario from "./components/funcionario/formfuncionario/FormFuncionario";
-import DeletarFuncionario from "./components/funcionario/deletarfuncionario/DeletarFuncionario";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import MainLayout from "./mainlayout/MainLayout";
+import TempoLivre from "./pages/TempoLivre";
 
 const App: React.FC = () => {
   return (
@@ -31,19 +32,11 @@ const App: React.FC = () => {
             <Route path="/configuracoes" element={<Configuracoes />} />
             <Route path="/funcionarioslista" element={<ListaFuncionarios />} />
             <Route path="/cadastrarfuncionario" element={<FormFuncionario />} />
-            <Route
-              path="/cadastrarfuncionario/{}"
-              element={<FormFuncionario />}
-            />
+            <Route path="/cadastrarfuncionario/{}" element={<FormFuncionario />}/>
             <Route path="/editar/:id" element={<FormFuncionario />} />
-            <Route
-              path="/deletarfuncionario/:id"
-              element={<DeletarFuncionario />}
-            />
-            <Route
-              path="/editarfuncionario/:id"
-              element={<FormFuncionario />}
-            />
+            <Route path="/deletarfuncionario/:id" element={<DeletarFuncionario />}/>
+            <Route path="/editarfuncionario/:id" element={<FormFuncionario />}/>
+            <Route path="/tempolivre" element={<TempoLivre />} />
           </Route>
         </Routes>
       </BrowserRouter>
