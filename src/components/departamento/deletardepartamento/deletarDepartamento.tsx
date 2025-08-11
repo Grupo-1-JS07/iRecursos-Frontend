@@ -1,19 +1,35 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { RotatingLines } from "react-loader-spinner"
 import { useNavigate, useParams } from "react-router-dom"
 import type Departamento from "../../../models/Departamento"
-import { deletar } from "../../../services/Service"
+import { buscar, deletar } from "../../../services/Service"
 
 function DeletarDepartamento() {
 
     const navigate = useNavigate()
 
-    const [departamento] = useState<Departamento>({} as Departamento)
+    const [departamento, setDepartamento] = useState<Departamento>({} as Departamento)
     const [isLoading, setIsLoading] = useState<boolean>(false)
     
     const { id } = useParams<{ id: string }>()
+
+    async function buscarPorId(id: string) {
+        try {
+        await buscar(`departamentos/${id}`, setDepartamento);
+        } catch (error: any) {
+          if (error.toString().includes("401")) {
+            <></>;
+          }
+        }
+      }
+
+      useEffect(() => {
+        if (id !== undefined) {
+          buscarPorId(id);
+        }
+      }, [id]);
 
 
     async function deletarDepartamento() {
@@ -48,7 +64,7 @@ function DeletarDepartamento() {
             <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
                 <header 
                     className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>
-                    Tema
+                    Departamento
                 </header>
                 <p className='p-8 text-3xl bg-slate-200 h-full'>{departamento.nome_departamento}</p>
                 <div className="flex">

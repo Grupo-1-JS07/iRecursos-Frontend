@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import FormDepartamento from "./components/departamento/formdepartamento/formDepartamentos";
+import ListaDepartamentos from "./components/departamento/listadepartamento/ListaDepartamento";
 import DeletarFuncionario from "./components/funcionario/deletarfuncionario/DeletarFuncionario";
 import FormFuncionario from "./components/funcionario/formfuncionario/FormFuncionario";
 import ListaFuncionarios from "./components/funcionario/listafuncionario/listaFuncionario";
@@ -7,11 +9,12 @@ import MainLayout from "./mainlayout/MainLayout";
 import Configuracoes from "./pages/Configuracoes";
 import Dashboard from "./pages/Dashboard";
 import Funcionarios from "./pages/Funcionarios";
-import Performance from "./pages/Performance";
 import Recrutamento from "./pages/Recrutamento";
 import Cadastro from "./pages/cadastro/Cadastro";
 import Login from "./pages/login/Login";
+import DeletarDepartamento from "./components/departamento/deletardepartamento/deletarDepartamento";
 import TempoLivre from "./pages/TempoLivre";
+// import Performance from "./pages/Performance";
 
 const App: React.FC = () => {
   return (
@@ -28,7 +31,21 @@ const App: React.FC = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/funcionarios" element={<Funcionarios />} />
             <Route path="/recrutamento" element={<Recrutamento />} />
-            <Route path="/performance" element={<Performance />} />
+            <Route path="/departamentos" element={<FormDepartamento />} />
+            <Route path="/departamentoslista" element={<ListaDepartamentos />} />
+            <Route path="/cadastrardepartamento" element={<FormDepartamento />} />
+            <Route
+              path="/cadastrardepartamento/{}"
+            />
+            <Route path="/editar/:id" element={<FormDepartamento />} />
+            <Route
+              path="/deletardepartamento/:id"
+              element={<DeletarDepartamento />}
+            />
+            <Route
+              path="/editardepartamento/:id"
+              element={<FormDepartamento />} />
+
             <Route path="/configuracoes" element={<Configuracoes />} />
             <Route path="/funcionarioslista" element={<ListaFuncionarios />} />
             <Route path="/cadastrarfuncionario" element={<FormFuncionario />} />

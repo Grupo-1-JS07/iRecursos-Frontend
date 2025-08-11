@@ -38,7 +38,7 @@ function FormDepartamento() {
     }
 
     function retornar() {
-        navigate("/departamentos")
+        navigate("/departamentoslista")
     }
 
     async function gerarNovoDepartamento(e: ChangeEvent<HTMLFormElement>) {
