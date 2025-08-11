@@ -36,7 +36,7 @@ const Sidebar: React.FC = () => {
           </li>
           <li className="mb-2">
             <Link
-              to="/recrutamento"
+              to="/cadastrarfuncionario"
               className="flex items-center justify-center w-12 h-12 text-gray-600 hover:bg-blue-500 hover:text-white rounded-md transition-colors duration-200"
             >
               <UserPlus size={24} />

@@ -31,8 +31,19 @@ const App: React.FC = () => {
             <Route path="/configuracoes" element={<Configuracoes />} />
             <Route path="/funcionarioslista" element={<ListaFuncionarios />} />
             <Route path="/cadastrarfuncionario" element={<FormFuncionario />} />
+            <Route
+              path="/cadastrarfuncionario/{}"
+              element={<FormFuncionario />}
+            />
             <Route path="/editar/:id" element={<FormFuncionario />} />
-            <Route path="/deletarfuncionario/:id" element={<DeletarFuncionario />} />
+            <Route
+              path="/deletarfuncionario/:id"
+              element={<DeletarFuncionario />}
+            />
+            <Route
+              path="/editarfuncionario/:id"
+              element={<FormFuncionario />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>
