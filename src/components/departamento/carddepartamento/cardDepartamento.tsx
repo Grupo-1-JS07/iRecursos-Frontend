@@ -7,11 +7,11 @@ interface CardDepartamentosProps{
 
 function CardDepartamentos({ departamento }: CardDepartamentosProps) {
     return (
-        <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-            <header className='py-2 px-6 bg-indigo-800 text-white font-bold text-2xl'>
-                Departamento
-            </header>
-            <p className='p-8 text-3xl bg-slate-200 h-full'>{departamento.nome_departamento}</p>
+    <div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
+      <header className="py-2 px-6 bg-[#6c757d] text-white font-bold text-2xl">
+        Departamento
+      </header>
+      <p className="p-8 text-3xl bg-slate-200 h-full">{departamento.nome_departamento}</p>
             
             <div className="flex">
                 <Link to={`/editardepartamento/${departamento.id}`}
@@ -20,7 +20,7 @@ function CardDepartamentos({ departamento }: CardDepartamentosProps) {
 	                <button>Editar</button>
                 </Link>
 
-                <Link to='' className='text-slate-100 bg-red-400 hover:bg-red-700 w-full 
+                <Link to={`/deletardepartamento/${departamento.id}`} className='text-slate-100 bg-red-400 hover:bg-red-700 w-full 
                     flex items-center justify-center'>
                     <button>Deletar</button>
                 </Link>
