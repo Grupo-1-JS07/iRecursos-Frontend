@@ -13,6 +13,8 @@ import Recrutamento from "./pages/Recrutamento";
 import Cadastro from "./pages/cadastro/Cadastro";
 import Login from "./pages/login/Login";
 import DeletarDepartamento from "./components/departamento/deletardepartamento/deletarDepartamento";
+import TempoLivre from "./pages/TempoLivre";
+// import Performance from "./pages/Performance";
 
 const App: React.FC = () => {
   return (
@@ -47,18 +49,11 @@ const App: React.FC = () => {
             <Route path="/configuracoes" element={<Configuracoes />} />
             <Route path="/funcionarioslista" element={<ListaFuncionarios />} />
             <Route path="/cadastrarfuncionario" element={<FormFuncionario />} />
-            <Route
-              path="/cadastrarfuncionario/{}"
-            />
+            <Route path="/cadastrarfuncionario/{}" element={<FormFuncionario />}/>
             <Route path="/editar/:id" element={<FormFuncionario />} />
-            <Route
-              path="/deletarfuncionario/:id"
-              element={<DeletarFuncionario />}
-            />
-            <Route
-              path="/editarfuncionario/:id"
-              element={<FormFuncionario />}
-            />
+            <Route path="/deletarfuncionario/:id" element={<DeletarFuncionario />}/>
+            <Route path="/editarfuncionario/:id" element={<FormFuncionario />}/>
+            <Route path="/tempolivre" element={<TempoLivre />} />
           </Route>
         </Routes>
       </BrowserRouter>
