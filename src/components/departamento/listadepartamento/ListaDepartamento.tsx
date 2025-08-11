@@ -20,23 +20,23 @@ function ListaDepartamentos() {
   }, [departamentos.length]);
 
   // Nomes de chefes de exemplo
-  const chefes = [
-    "João Silva",
-    "Maria Oliveira",
-    "Carlos Souza",
-    "Ana Paula",
-    "Fernanda Lima",
-    "Ricardo Alves",
-    "Patrícia Gomes",
-    "Lucas Pereira",
-    "Juliana Costa",
-    "Marcos Dias",
-    "Camila Rocha",
-    "Bruno Martins",
-    "Aline Barbosa",
-    "Felipe Mendes",
-    "Larissa Ramos",
-  ];
+  // const chefes = [
+  //   "João Silva",
+  //   "Maria Oliveira",
+  //   "Carlos Souza",
+  //   "Ana Paula",
+  //   "Fernanda Lima",
+  //   "Ricardo Alves",
+  //   "Patrícia Gomes",
+  //   "Lucas Pereira",
+  //   "Juliana Costa",
+  //   "Marcos Dias",
+  //   "Camila Rocha",
+  //   "Bruno Martins",
+  //   "Aline Barbosa",
+  //   "Felipe Mendes",
+  //   "Larissa Ramos",
+  // ];
 
   // Distribuição de funcionários
   const totalFuncionarios = 5420;
@@ -74,10 +74,9 @@ function ListaDepartamentos() {
                   />
                 </th>
                 <th className="py-3 px-4 text-left">Nome do Departamento</th>
-                <th className="py-3 px-4 text-left">Chefe do Departamento</th>
                 <th className="py-3 px-4 text-left">Nº de Funcionários</th>
                 <th className="py-3 px-4 text-left">Orçamento</th>
-                <th className="py-3 px-4 text-center">Ações</th>
+                <th className="py-3 px-4 text-center">Ações</th> 
               </tr>
             </thead>
             <tbody>

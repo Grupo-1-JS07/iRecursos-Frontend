@@ -53,7 +53,7 @@ function DeletarDepartamento() {
     }
 
     function retornar() {
-        navigate("/departamentos")
+        navigate("/dashboard")
     }
     
     return (
