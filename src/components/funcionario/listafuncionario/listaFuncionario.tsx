@@ -41,6 +41,7 @@ function ListaFuncionarios() {
               <tr className="bg-indigo-100 text-indigo-900">
                 <th className="py-3 px-4 text-left">Nome</th>
                 <th className="py-3 px-4 text-left">Salário Final</th>
+                <th className="py-3 px-4 text-left">Departamento</th>
                 <th className="py-3 px-4 text-center">Ações</th>
               </tr>
             </thead>
@@ -58,6 +59,9 @@ function ListaFuncionarios() {
                       style: "currency",
                       currency: "BRL",
                     })}
+                  </td>
+                                    <td className="py-2 px-4">
+                    {String(funcionario.departamento?.nome_departamento)}
                   </td>
                   <td className="py-2 px-4 flex gap-3 justify-center">
                     <a

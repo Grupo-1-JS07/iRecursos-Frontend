@@ -9,12 +9,11 @@ import MainLayout from "./mainlayout/MainLayout";
 import Configuracoes from "./pages/Configuracoes";
 import Dashboard from "./pages/Dashboard";
 import Funcionarios from "./pages/Funcionarios";
-import Recrutamento from "./pages/Recrutamento";
 import Cadastro from "./pages/cadastro/Cadastro";
 import Login from "./pages/login/Login";
 import DeletarDepartamento from "./components/departamento/deletardepartamento/deletarDepartamento";
 import TempoLivre from "./pages/TempoLivre";
-// import Performance from "./pages/Performance";
+import Performance from "./pages/Performance";
 
 const App: React.FC = () => {
   return (
@@ -30,27 +29,15 @@ const App: React.FC = () => {
           <Route element={<MainLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/funcionarios" element={<Funcionarios />} />
-            <Route path="/recrutamento" element={<Recrutamento />} />
             <Route path="/departamentos" element={<FormDepartamento />} />
             <Route path="/departamentoslista" element={<ListaDepartamentos />} />
             <Route path="/cadastrardepartamento" element={<FormDepartamento />} />
-            <Route
-              path="/cadastrardepartamento/{}"
-            />
-            <Route path="/editar/:id" element={<FormDepartamento />} />
-            <Route
-              path="/deletardepartamento/:id"
-              element={<DeletarDepartamento />}
-            />
-            <Route
-              path="/editardepartamento/:id"
-              element={<FormDepartamento />} />
-
+            <Route path="/deletardepartamento/:id" element={<DeletarDepartamento />}/>
+            <Route path="/editardepartamento/:id" element={<FormDepartamento />} />
+            <Route path="/performance" element={<Performance />} />
             <Route path="/configuracoes" element={<Configuracoes />} />
             <Route path="/funcionarioslista" element={<ListaFuncionarios />} />
             <Route path="/cadastrarfuncionario" element={<FormFuncionario />} />
-            <Route path="/cadastrarfuncionario/{}" element={<FormFuncionario />}/>
-            <Route path="/editar/:id" element={<FormFuncionario />} />
             <Route path="/deletarfuncionario/:id" element={<DeletarFuncionario />}/>
             <Route path="/editarfuncionario/:id" element={<FormFuncionario />}/>
             <Route path="/tempolivre" element={<TempoLivre />} />

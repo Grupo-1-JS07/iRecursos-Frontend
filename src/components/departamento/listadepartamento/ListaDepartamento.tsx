@@ -92,12 +92,6 @@ function ListaDepartamentos() {
                   <td className="py-2 px-4 font-semibold">
                     {departamento.nome_departamento}
                   </td>
-                  <td className="py-2 px-4 text-slate-600">
-                    {departamento.chefeDepartamento &&
-                    departamento.chefeDepartamento.trim() !== ""
-                      ? departamento.chefeDepartamento
-                      : chefes[idx % chefes.length]}
-                  </td>
                   <td className="py-2 px-4">
                     {departamento.funcionario &&
                     Array.isArray(departamento.funcionario) &&
@@ -132,7 +126,7 @@ function ListaDepartamentos() {
                       </svg>
                     </a>
                     <a
-                      href={``}
+                      href={`/deletardepartamento/${departamento.id}`}
                       className="p-2 rounded-full hover:bg-red-100 text-red-500 hover:text-red-700 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-red-200"
                       title="Deletar"
                     >

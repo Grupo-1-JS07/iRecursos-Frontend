@@ -9,28 +9,26 @@ const TempoLivre: React.FC = () => {
   const [value, setValue] = useState<Value>(new Date());
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Gestão de Tempo Livre</h1>
-      <p className="mb-4">Visualize suas férias, folgas e outros eventos.</p>
+    <div className="w-screen h-screen flex flex-col bg-gray-100 p-4">
+      <h1 className="text-2xl font-bold mb-2 text-center">Gestão de Tempo Livre</h1>
+      <p className="mb-4 text-center">Visualize suas férias, folgas e outros eventos.</p>
 
-      <div className="bg-white p-4 rounded shadow-md inline-block">
-        <Calendar
-          onChange={(newValue) => setValue(newValue as Value)}
-          value={value}
-          locale="pt-BR"
-          selectRange
-        />
+      <div className="flex-grow flex justify-center items-center">
+        <div className="bg-white p-4 rounded shadow-lg">
+          <Calendar
+            onChange={(newValue) => setValue(newValue as Value)}
+            value={value ?? new Date()}
+            locale="pt-BR"
+            selectRange
+          />
+        </div>
       </div>
 
-      <div className="mt-4">
-        <p>
-          Data selecionada:{" "}
-          <strong>
-            {Array.isArray(value)
-              ? `${value[0]?.toLocaleDateString()} até ${value[1]?.toLocaleDateString()}`
-              : value?.toLocaleDateString()}
-          </strong>
-        </p>
+      <div className="text-center mt-4">
+        <strong>Data selecionada: </strong>
+        {Array.isArray(value)
+          ? `${value[0]?.toLocaleDateString("pt-BR")} até ${value[1]?.toLocaleDateString("pt-BR")}`
+          : value?.toLocaleDateString("pt-BR")}
       </div>
     </div>
   );
