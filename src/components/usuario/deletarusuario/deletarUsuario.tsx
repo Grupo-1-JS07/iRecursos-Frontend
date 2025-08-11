@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import type { useState } from "react"
+import { useState } from "react"
 import { RotatingLines } from "react-loader-spinner"
 import { useNavigate, useParams } from "react-router-dom"
-import type Usuario from "../../../models/Usuario"
 import { deletar } from "../../../services/Service"
+import type Usuario from "../../../models/Usuario"
 
 function DeletarUsuario() {
 
