@@ -1,19 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
 import { DNA } from "react-loader-spinner";
-import CardFuncionarios from "../cardfuncionario/CardFuncionario";
 import type Funcionario from "../../../models/Funcionario";
-import { toast } from "react-toastify";
 import { buscar } from "../../../services/Service";
-// import { buscar, deletar } from '../../../services/Service'; // Comentado para não usar o serviço real
 
 function ListaFuncionarios() {
   const [funcionarios, setFuncionarios] = useState<Funcionario[]>([]);
 
-  // Função de deletar simulada para funcionar com os dados mocados
-  //   async function deletarFuncionario(id: number) {
-  //     toast.info(`Exclusão do funcionário ${id} simulada!`);
-  //     setFuncionarios(funcionarios.filter((f) => f.id !== id));
-  //   }
 
   async function buscarFuncionarios() {
     try {
@@ -29,45 +22,93 @@ function ListaFuncionarios() {
     buscarFuncionarios();
   }, [funcionarios.length]);
 
-  // O useEffect agora popula o componente com dados FALSOS (mock) para visualização
-  //   useEffect(() => {
-  //     // Lista de funcionários de exemplo
-  //     const mockData: Funcionario[] = [
-  //       { id: 1, nome: "Ana Carolina" },
-  //       { id: 2, nome: "Bruno Marques" },
-  //       { id: 3, nome: "Carlos Eduardo" },
-  //       { id: 4, nome: "Daniela Ribeiro" },
-  //       { id: 5, nome: "Eduardo Costa" },
-  //       { id: 6, nome: "Fernanda Lima" },
-  //     ];
-  //     setFuncionarios(mockData);
-  //   }, []); // O array vazio garante que isso rode apenas uma vez
 
   return (
     <>
-      {/* A condição de carregamento agora só aparece por uma fração de segundo */}
       {funcionarios.length === 0 && (
         <DNA
           visible={true}
           height="200"
           width="200"
           ariaLabel="dna-loading"
-          wrapperStyle={{}}
           wrapperClass="dna-wrapper mx-auto"
         />
       )}
-      <div className="flex justify-center w-full my-4">
-        <div className="container flex flex-col">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {funcionarios.map((funcionario) => (
-              <CardFuncionarios
-                key={funcionario.id}
-                funcionario={funcionario}
-              />
-            ))}
-          </div>
+      {funcionarios.length > 0 && (
+        <div className="overflow-x-auto w-full">
+          <table className="min-w-full bg-white border border-slate-200 rounded-xl shadow-md">
+            <thead>
+              <tr className="bg-indigo-100 text-indigo-900">
+                <th className="py-3 px-4 text-left">Nome</th>
+                <th className="py-3 px-4 text-left">Salário Final</th>
+                <th className="py-3 px-4 text-center">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              {funcionarios.map((funcionario) => (
+                <tr
+                  key={funcionario.id}
+                  className="border-b hover:bg-indigo-50 transition"
+                >
+                  <td className="py-2 px-4 font-semibold">
+                    {funcionario.nome}
+                  </td>
+                  <td className="py-2 px-4">
+                    {Number(funcionario.salarioFinal).toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </td>
+                  <td className="py-2 px-4 flex gap-3 justify-center">
+                    <a
+                      href={`/editarfuncionario/${funcionario.id}`}
+                      className="flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500 text-white shadow hover:bg-indigo-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                      title="Editar"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15.232 5.232l3.536 3.536M9 13h3l8-8a2.828 2.828 0 10-4-4l-8 8v3zm0 0v3h3"
+                        />
+                      </svg>
+                      <span className="hidden sm:inline">Editar</span>
+                    </a>
+                    <a
+                      href={`/deletarfuncionario/${funcionario.id}`}
+                      className="flex items-center gap-2 px-4 py-2 rounded-full bg-red-500 text-white shadow hover:bg-red-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-300"
+                      title="Deletar"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                      <span className="hidden sm:inline">Deletar</span>
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </div>
+      )}
     </>
   );
 }
